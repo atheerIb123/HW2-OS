@@ -13,7 +13,7 @@ asmlinkage long sys_set_weight(long weight)
 {
   if(weight < 0)
   {
-    return EINVAL;
+    return (long)(-EINVAL);
   }
 
   current->weight = weight;
@@ -74,7 +74,5 @@ long sys_get_heaviest_aux(struct task_struct* task)
 
 asmlinkage long sys_get_heaviest_descendant(void)
 {
-
 	return sys_get_heaviest_aux(current);
 }
-
